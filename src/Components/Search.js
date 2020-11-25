@@ -1,4 +1,3 @@
-
 export default function Search(props) {
     return (
         <form className="search" >
@@ -8,4 +7,3 @@ export default function Search(props) {
         </form>
     )
 }
-

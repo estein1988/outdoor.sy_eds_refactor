@@ -2,12 +2,13 @@ import { Component } from 'react';
 import './App.css';
 import AddNewCustomer from './Components/AddNewCustomer'
 import CustomerTable from './Components/CustomerTable';
+import Filter from './Components/Filter';
 import Search from './Components/Search';
 
 const apiUrl = 'http://localhost:3000/customers'
 
 class App extends Component {
-  state= {
+  state = {
     customers: [], 
     searchTerm: "",
     currentFilter: "all",
@@ -83,15 +84,7 @@ class App extends Component {
           <h1>Customer Management</h1>
           <div className="search-and-filter">
             <Search searchTerm={this.state.searchTerm} updateSearchTerm={this.updateSearchTerm}/>
-            <form className="filter" >
-              <select onChange={this.updateCurrentFilter} value={this.state.currentFilter}>
-                <option value="all">Show all</option>
-                <option value="RV">Show Only RVs</option>
-                <option value="Sailboat">Show Only Sailboats</option>
-                <option value="Van">Show Only Vans</option>
-                <option value="Bike">Show Only Bikes</option>
-              </select>
-            </form>
+            <Filter  updateCurrentFilter={this.updateCurrentFilter} />
           </div>
         </header>
         <CustomerTable displayedCustomers={this.displayedCustomers} currentSort={this.state.currentSort} />
