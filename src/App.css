@@ -2,10 +2,19 @@
 *{
   box-sizing: border-box;
 }
+:root {
+  --darkGreen: rgb(57, 89, 62);
+  --tan: rgb(200, 199, 151);
+}
 body{
   font-family: Roboto, san-serif;
-  max-width: 800px; 
-  padding: 2rem;
+  max-width: 100%; 
+  padding: 1rem;
+}
+.styled-header{
+  background-color: var(--darkGreen);
+  color: var(--tan);
+  padding: 0.5rem;
 }
 header {
   margin-bottom: 2rem;

@@ -3,6 +3,7 @@ import './App.css';
 import AddNewCustomer from './Components/AddNewCustomer'
 import CustomerTable from './Components/CustomerTable';
 import Filter from './Components/Filter';
+import Header from './Components/Header';
 import Search from './Components/Search';
 
 const apiUrl = 'http://localhost:3000/customers'
@@ -80,8 +81,9 @@ class App extends Component {
   render(){
     return (
       <div className="App">
+        <Header />
         <header>
-          <h1>Customer Management</h1>
+          <h2>Customer Management Tool</h2>
           <div className="search-and-filter">
             <Search searchTerm={this.state.searchTerm} updateSearchTerm={this.updateSearchTerm}/>
             <Filter  updateCurrentFilter={this.updateCurrentFilter} />
