@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 export default class  AddNewCustomer extends Component {
-    state= {
+    state = {
         customers: [],
         newCustomer: { 
         first_name: "",
@@ -10,7 +10,8 @@ export default class  AddNewCustomer extends Component {
         vehicle_type: "",
         vehicle_name: "",
         vehicle_length: ""
-        } 
+        },
+        selectedFile: null
     }
     updateNewCustomer = event =>{
         const key = event.target.name
@@ -29,7 +30,7 @@ export default class  AddNewCustomer extends Component {
             vehicle_type: this.state.newCustomer.vehicle_type,
             vehicle_name: this.state.newCustomer.vehicle_name,
             vehicle_length: this.state.newCustomer.vehicle_length
-          }
+        }
         this.setState(state => {
             state.customers = [...state.customers, newCustomer]
             state.newCustomer = {
@@ -39,16 +40,28 @@ export default class  AddNewCustomer extends Component {
             vehicle_type: "",
             vehicle_name: "",
             vehicle_length: ""
-          }
-          return state 
+            }
+            return state 
         })
         this.props.addNewCustomer(newCustomer)
+    }
+    onFileChange = event => {
+        this.setState({selectedFile: event.target.files[0]})
+    }
+    onFileUpload = () => {
+        const formData = new FormData();
+        formData.append(
+            "myFile",
+            this.state.selectedFile,
+            this.state.selectedFile.name
+        );
+        console.log(this.state.selectedFile);
     }
     render() {
         return (
             <section className="form-and-drop">
             <form onSubmit={this.addNewCustomer} className="add-new">
-                <h2>Add a New Customer</h2>
+                <h2>Add One New Customer</h2>
                 <input 
                     onChange={this.updateNewCustomer} 
                     required 
@@ -59,6 +72,7 @@ export default class  AddNewCustomer extends Component {
                 />
                 <input 
                     onChange={this.updateNewCustomer} 
+                    required
                     type="text" 
                     name="last_name" 
                     placeholder="Last Name" 
@@ -66,6 +80,7 @@ export default class  AddNewCustomer extends Component {
                 />
                 <input 
                     onChange={this.updateNewCustomer} 
+                    required
                     type="text" 
                     name="email" 
                     placeholder="Email" 
@@ -73,6 +88,7 @@ export default class  AddNewCustomer extends Component {
                 />
                 <select 
                     onChange={this.updateNewCustomer} 
+                    required
                     name="vehicle_type" 
                     value={this.state.newCustomer.vehicle_type}
                 >
@@ -84,6 +100,7 @@ export default class  AddNewCustomer extends Component {
                 </select>
                 <input 
                     onChange={this.updateNewCustomer} 
+                    required
                     type="text" 
                     name="vehicle_name" 
                     placeholder="Vehicle Name" 
@@ -91,6 +108,7 @@ export default class  AddNewCustomer extends Component {
                 />
                 <input 
                     onChange={this.updateNewCustomer} 
+                    required
                     type="text" 
                     name="vehicle_length" 
                     placeholder="Vehicle Length" 
@@ -98,12 +116,17 @@ export default class  AddNewCustomer extends Component {
                 />
                 <input 
                     onChange={this.updateNewCustomer} 
+                    required
                     type='submit' 
                     value="Add customer" 
                 />
             </form>
             <div className="file-drop">
-                <p>Drag and Drop Files Here</p>
+                <h2>Add Multiple Customers</h2>
+                <input type="file" onChange={this.onFileChange} />
+                <button onClick={this.onFileUpload}>
+                    Upload!
+                </button>
             </div>
             </section>
         )

@@ -89,7 +89,7 @@ class App extends Component {
             <Filter  updateCurrentFilter={this.updateCurrentFilter} />
           </div>
         </header>
-        <CustomerTable displayedCustomers={this.displayedCustomers} currentSort={this.state.currentSort} />
+        <CustomerTable displayedCustomers={this.displayedCustomers} updateCurrentSort={this.updateCurrentSort} currentSort = {this.state.currentSort} />
         <AddNewCustomer addNewCustomer={this.addNewCustomer} />
       </div>
     );

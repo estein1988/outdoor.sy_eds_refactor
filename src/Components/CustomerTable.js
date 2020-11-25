@@ -7,19 +7,19 @@ export default function CustomerTable(props) {
             <thead>
                 <tr>
                     <th>Customer
-                    <button className={props.currentSort === 'last_name' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("last_name")}}>v</button>
+                    <button className={props.currentSort === 'last_name' ? 'active-sort' : undefined} onClick={() => {props.updateCurrentSort("last_name")}}>v</button>
                     </th>
                     <th>Email
-                    <button className={props.currentSort === 'email' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("email")}}>v</button>
+                    <button className={props.currentSort === 'email' ? 'active-sort' : undefined} onClick={() => {props.updateCurrentSort("email")}}>v</button>
                     </th>
                     <th>Vehicle Type
-                    <button className={props.currentSort === 'vehicle_type' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("vehicle_type")}}>v</button>
+                    <button className={props.currentSort === 'vehicle_type' ? 'active-sort' : undefined} onClick={() => {props.updateCurrentSort("vehicle_type")}}>v</button>
                     </th>
                     <th>Vehicle Name
-                    <button className={props.currentSort === 'vehicle_name' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("vehicle_name")}}>v</button>
+                    <button className={props.currentSort === 'vehicle_name' ? 'active-sort' : undefined} onClick={() => {props.updateCurrentSort("vehicle_name")}}>v</button>
                     </th>
                     <th>Vehicle Length
-                    <button className={props.currentSort === 'vehicle_length' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("vehicle_length")}}>v</button>
+                    <button className={props.currentSort === 'vehicle_length' ? 'active-sort' : undefined} onClick={() => {props.updateCurrentSort("vehicle_length")}}>v</button>
                     </th>
                 </tr>
             </thead>
