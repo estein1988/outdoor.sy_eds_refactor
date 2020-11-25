@@ -1,4 +1,4 @@
-# Outdoor.sy Front End
+# Outdoor.sy Customer Management Tool - Front End
 
 ## Features
 
