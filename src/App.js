@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import './App.css';
 import AddNewCustomer from './Components/AddNewCustomer'
+import CustomerTable from './Components/CustomerTable';
 import Search from './Components/Search';
 
 const apiUrl = 'http://localhost:3000/customers'
@@ -93,44 +94,8 @@ class App extends Component {
             </form>
           </div>
         </header>
-        <section className='table'>
-          <table className="customer-table">
-            <thead>
-              <tr>
-                <th>Customer
-                  <button className={this.state.currentSort === 'last_name' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("last_name")}}>v</button>
-                </th>
-                <th>Email
-                  <button className={this.state.currentSort === 'email' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("email")}}>v</button>
-                </th>
-                <th>Vehicle Type
-                  <button className={this.state.currentSort === 'vehicle_type' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("vehicle_type")}}>v</button>
-                </th>
-                <th>Vehicle Name
-                  <button className={this.state.currentSort === 'vehicle_name' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("vehicle_name")}}>v</button>
-                </th>
-                <th>Vehicle Length
-                  <button className={this.state.currentSort === 'vehicle_length' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("vehicle_length")}}>v</button>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.displayedCustomers().map(customer =>{
-                  return(
-                    <tr>
-                    <td>{customer.last_name}, {customer.first_name}</td>
-                    <td>{customer.email}</td>
-                    <td>{customer.vehicle_type}</td>
-                    <td>{customer.vehicle_name}</td>
-                    <td>{customer.vehicle_length}</td>
-                  </tr>
-                  )
-                })
-              }
-            </tbody>
-          </table>
-          </section>
-         <AddNewCustomer addNewCustomer={this.addNewCustomer} />
+        <CustomerTable displayedCustomers={this.displayedCustomers} currentSort={this.state.currentSort} />
+        <AddNewCustomer addNewCustomer={this.addNewCustomer} />
       </div>
     );
   }
