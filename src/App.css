@@ -45,4 +45,9 @@ th, td {
   display: flex;
   justify-content: space-between;
 }
+.active-sort{
+  background-color: blue;
+  border: none;
+  color: white;
+}
 

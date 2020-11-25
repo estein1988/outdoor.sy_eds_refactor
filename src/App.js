@@ -13,7 +13,8 @@ class App extends Component {
       vehicle_length: ""
     }, 
     searchTerm: "",
-    currentFilter: "all"
+    currentFilter: "all",
+    currentSort: ""
   }
   componentDidMount(){
     fetch(apiUrl)
@@ -71,13 +72,21 @@ class App extends Component {
         )
       }
     }).filter(customer => {
-      if (this.state.currentFilter == "all"){
+      if (this.state.currentFilter === "all"){
         return true 
       }else {
           return (
             customer.vehicle_type === this.state.currentFilter
           )
         }
+    }).sort((a,b) => {
+      if(!this.state.currentSort){
+        return 0 
+      }else {
+        return a[this.state.currentSort] >= b[this.state.currentSort]
+          ? 1
+          : -1
+      }
     })
   }
   updateSearchTerm = (event) => {
@@ -88,6 +97,11 @@ class App extends Component {
   updateCurrentFilter = (event) => {
     this.setState({
       currentFilter: event.target.value
+    })
+  }
+  updateCurrentSort = (sortCriterion) => {
+    this.setState({
+      currentSort: sortCriterion
     })
   }
   render(){
@@ -116,11 +130,21 @@ class App extends Component {
           <table className="customer-table">
             <thead>
               <tr>
-                <th>Customer<button>v</button></th>
-                <th>Email<button>v</button></th>
-                <th>Vehicle Type<button>v</button></th>
-                <th>Vehicle Name<button>v</button></th>
-                <th>Vehicle Length<button>v</button></th>
+                <th>Customer
+                  <button className={this.state.currentSort === 'last_name' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("last_name")}}>v</button>
+                </th>
+                <th>Email
+                  <button className={this.state.currentSort === 'email' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("email")}}>v</button>
+                </th>
+                <th>Vehicle Type
+                  <button className={this.state.currentSort === 'vehicle_type' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("vehicle_type")}}>v</button>
+                </th>
+                <th>Vehicle Name
+                  <button className={this.state.currentSort === 'vehicle_name' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("vehicle_name")}}>v</button>
+                </th>
+                <th>Vehicle Length
+                  <button className={this.state.currentSort === 'vehicle_length' ? 'active-sort' : undefined} onClick={() => {this.updateCurrentSort("vehicle_length")}}>v</button>
+                </th>
               </tr>
             </thead>
             <tbody>
