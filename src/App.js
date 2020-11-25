@@ -13,6 +13,7 @@ class App extends Component {
       vehicle_length: ""
     }, 
     searchTerm: "",
+    currentFilter: "all"
   }
   componentDidMount(){
     fetch(apiUrl)
@@ -69,11 +70,24 @@ class App extends Component {
           || customer.last_name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
         )
       }
+    }).filter(customer => {
+      if (this.state.currentFilter == "all"){
+        return true 
+      }else {
+          return (
+            customer.vehicle_type === this.state.currentFilter
+          )
+        }
     })
   }
   updateSearchTerm = (event) => {
     this.setState({
       searchTerm: event.target.value
+    })
+  }
+  updateCurrentFilter = (event) => {
+    this.setState({
+      currentFilter: event.target.value
     })
   }
   render(){
@@ -88,12 +102,12 @@ class App extends Component {
               </label>
             </form>
             <form className="filter" >
-              <select>
+              <select onChange={this.updateCurrentFilter} value={this.state.currentFilter}>
                 <option value="all">Show all</option>
-                <option value="RVs">Show Only RVs</option>
-                <option value="Sailboats">Show Only Sailboats</option>
-                <option value="Vans">Show Only Vans</option>
-                <option value="Bikes">Show Only Bikes</option>
+                <option value="RV">Show Only RVs</option>
+                <option value="Sailboat">Show Only Sailboats</option>
+                <option value="Van">Show Only Vans</option>
+                <option value="Bike">Show Only Bikes</option>
               </select>
             </form>
           </div>
