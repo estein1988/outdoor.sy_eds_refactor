@@ -49,7 +49,6 @@ th, td {
   margin-bottom: 0.5rem;
   width: 300px;
 }
-
 .form-and-drop {
   display: flex;
   justify-content: space-around;
@@ -59,4 +58,10 @@ th, td {
   border: none;
   color:  var(--tan);
 }
-
+button{
+  margin: 0.25rem;
+}
+button:hover, .button:hover{
+  background-color: var(--darkGreen);
+  color: var(--tan);
+}

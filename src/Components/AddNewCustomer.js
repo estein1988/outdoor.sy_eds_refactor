@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from "axios"
 
 export default class  AddNewCustomer extends Component {
     state = {
@@ -56,7 +57,32 @@ export default class  AddNewCustomer extends Component {
             this.state.selectedFile.name
         );
         console.log(this.state.selectedFile);
+        axios.post('http://localhost:3000/customers', formData)
+    };
+
+    fileData = () => {
+        if (this.state.selectedFile){
+            return(
+                <div> 
+                <h2>File Details:</h2> 
+                <p>File Name: {this.state.selectedFile.name}</p> 
+                <p>File Type: {this.state.selectedFile.type}</p> 
+                <p> 
+                Last Modified:{" "} 
+                {this.state.selectedFile.lastModifiedDate.toDateString()} 
+                </p> 
+            </div> 
+            ); 
+        } else { 
+            return ( 
+            <div> 
+                <br /> 
+                <h4>Choose before Pressing the Upload button</h4> 
+            </div>  
+            )
+        }
     }
+
     render() {
         return (
             <section className="form-and-drop">
@@ -117,17 +143,19 @@ export default class  AddNewCustomer extends Component {
                 <input 
                     onChange={this.updateNewCustomer} 
                     required
+                    className="button"
                     type='submit' 
                     value="Add customer" 
                 />
             </form>
             <div className="file-drop">
                 <h2>Add Multiple Customers</h2>
-                <input type="file" onChange={this.onFileChange} />
+                <input className="button" type="file" onChange={this.onFileChange} />
                 <button onClick={this.onFileUpload}>
                     Upload!
                 </button>
             </div>
+            {this.fileData}
             </section>
         )
     }
