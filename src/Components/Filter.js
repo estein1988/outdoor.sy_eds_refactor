@@ -1,6 +1,7 @@
 export default function Filter(props) {
     return (
         <form className="filter" >
+            <h3>Filter By Vehicle Type</h3>
             <select onChange={props.updateCurrentFilter} value={props.currentFilter}>
                 <option value="all">Show all</option>
                 <option value="RV">Show Only RVs</option>

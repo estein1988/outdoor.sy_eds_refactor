@@ -25,7 +25,7 @@ export default function CustomerTable(props) {
             <tbody>
                 {props.displayedCustomers().map(customer =>{
                     return(
-                        <tr>
+                        <tr key={customer.id}>
                             <td>{customer.last_name}, {customer.first_name}</td>
                             <td>{customer.email}</td>
                             <td>{customer.vehicle_type}</td>

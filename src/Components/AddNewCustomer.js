@@ -54,7 +54,7 @@ export default class  AddNewCustomer extends Component {
             let csv_vehicle_type = data[i].data[3]
             let csv_vehicle_name = data[i].data[4]
             let csv_vehicle_length = data[i].data[5]
-
+        
             fetch('http://localhost:3000/customers',{
                 method:"POST",
                 headers: {
@@ -69,10 +69,9 @@ export default class  AddNewCustomer extends Component {
                         vehicle_name: csv_vehicle_name,
                         vehicle_length: csv_vehicle_length
                     })
-            })
+            }).then(window.location.reload())
         }
     }
-
     render() {
         return (
             <section className="form-and-drop">
@@ -142,7 +141,6 @@ export default class  AddNewCustomer extends Component {
                     <h3>Add Customers From File</h3>
                     <CSVReader 
                         onFileLoad = {this.handleReadCSV}
-                        inputRef={this.fileInput}
                     >
                         <span>Drop File To Upload Here</span>
                     </CSVReader>
