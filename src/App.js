@@ -90,7 +90,7 @@ class App extends Component {
           </div>
         </header>
         <CustomerTable displayedCustomers={this.displayedCustomers} updateCurrentSort={this.updateCurrentSort} currentSort = {this.state.currentSort} />
-        <AddNewCustomer addNewCustomer={this.addNewCustomer} />
+        <AddNewCustomer addNewCustomer={this.addNewCustomer} displayedCustomers={this.displayedCustomers} />
       </div>
     );
   }
