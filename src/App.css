@@ -9,7 +9,6 @@
 body{
   font-family: Roboto, san-serif;
   max-width: 100%; 
-  padding: 1rem;
 }
 .styled-header{
   background-color: var(--darkGreen);
@@ -18,6 +17,7 @@ body{
 }
 header {
   margin-bottom: 2rem;
+  text-align: center;
 }
 input, select {
   padding: 0.5rem 0.25rem;
