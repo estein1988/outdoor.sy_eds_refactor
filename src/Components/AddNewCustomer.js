@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { CSVReader } from 'react-papaparse'
-const apiUrl = 'http://localhost:3000/customers'
 
 export default class  AddNewCustomer extends Component {
     state = {
@@ -55,21 +54,21 @@ export default class  AddNewCustomer extends Component {
             let csv_vehicle_type = data[i].data[3]
             let csv_vehicle_name = data[i].data[4]
             let csv_vehicle_length = data[i].data[5]
-        
-        fetch('http://localhost:3000/customers',{
-            method:"POST",
-            headers: {
-                "Content-Type":"application/json",
-                Accept: "application/json"
-            },
-                body: JSON.stringify({
-                    first_name: csv_first_name,
-                    last_name: csv_last_name,
-                    email: csv_email,
-                    vehicle_type: csv_vehicle_type,
-                    vehicle_name: csv_vehicle_name,
-                    vehicle_length: csv_vehicle_length
-                })
+            
+            fetch('http://localhost:3000/customers',{
+                method:"POST",
+                headers: {
+                    "Content-Type":"application/json",
+                    Accept: "application/json"
+                },
+                    body: JSON.stringify({
+                        first_name: csv_first_name,
+                        last_name: csv_last_name,
+                        email: csv_email,
+                        vehicle_type: csv_vehicle_type,
+                        vehicle_name: csv_vehicle_name,
+                        vehicle_length: csv_vehicle_length
+                    })
             })
         }
     }
@@ -78,7 +77,7 @@ export default class  AddNewCustomer extends Component {
         return (
             <section className="form-and-drop">
             <form onSubmit={this.addNewCustomer} className="add-new">
-                <h2>Add One New Customer</h2>
+                <h3>Add One New Customer</h3>
                 <input 
                     onChange={this.updateNewCustomer} 
                     required 
@@ -140,12 +139,15 @@ export default class  AddNewCustomer extends Component {
                 />
             </form>
             <div className="file-drop">
+                <h3>Add Customers From File</h3>
                 <CSVReader 
                     onFileLoad = {this.handleReadCSV}
                     // inputRef={this.fileInput}
                     // style ={{display: "none"}}
                     // onError={this.handleOnError}
-                />
+                >
+                    <span>Drop File To Upload Here</span>
+                </CSVReader>
             </div>  
             </section>
         )

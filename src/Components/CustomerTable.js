@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function CustomerTable(props) {
         return (
-            <section className='table'>
             <table className="customer-table">
             <thead>
                 <tr>
@@ -38,7 +37,6 @@ export default function CustomerTable(props) {
                 }
             </tbody>
             </table>
-        </section>
         )
 }
 
