@@ -50,7 +50,7 @@ export default class  AddNewCustomer extends Component {
         return (
             <section className="form-and-drop">
             <form onSubmit={this.addNewCustomer} className="add-new">
-                <h2>Add One New Customer</h2>
+                <h3>Add New Customer</h3>
                 <label htmlFor="firstName">First Name: </label>
                 <input 
                     id="firstName"

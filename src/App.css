@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-
 *{
   box-sizing: border-box;
 }
@@ -85,4 +84,7 @@ button, .button{
 button:hover, .button:hover{
   background-color: var(--darkGreen);
   color: var(--tan);
+}
+.file-drop{
+  width: 30rem;
 }
