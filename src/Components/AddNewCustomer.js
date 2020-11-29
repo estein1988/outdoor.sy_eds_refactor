@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { CSVReader } from 'react-papaparse'
 
 export default class  AddNewCustomer extends Component {
     state = {
@@ -23,6 +22,7 @@ export default class  AddNewCustomer extends Component {
         })
     }
     addNewCustomer = event => {
+        console.log("hit")
         event.preventDefault()
         const newCustomer = {
             first_name: this.state.newCustomer.first_name,
@@ -46,91 +46,71 @@ export default class  AddNewCustomer extends Component {
         })
         this.props.addNewCustomer(newCustomer)
     }
-    handleReadCSV = data => { 
-        for (let i = 0; i < data.length; i++) {
-            let csv_first_name = data[i].data[0]
-            let csv_last_name = data[i].data[1]
-            let csv_email = data[i].data[2]
-            let csv_vehicle_type = data[i].data[3]
-            let csv_vehicle_name = data[i].data[4]
-            let csv_vehicle_length = data[i].data[5]
-        
-            fetch('http://localhost:3000/customers',{
-                method:"POST",
-                headers: {
-                    "Content-Type":"application/json",
-                    Accept: "application/json"
-                },
-                    body: JSON.stringify({
-                        first_name: csv_first_name,
-                        last_name: csv_last_name,
-                        email: csv_email,
-                        vehicle_type: csv_vehicle_type,
-                        vehicle_name: csv_vehicle_name,
-                        vehicle_length: csv_vehicle_length
-                    })
-            }).then(window.location.reload())
-        }
-    }
     render() {
         return (
             <section className="form-and-drop">
             <form onSubmit={this.addNewCustomer} className="add-new">
                 <h2>Add One New Customer</h2>
+                <label htmlFor="firstName">First Name: </label>
                 <input 
+                    id="firstName"
                     onChange={this.updateNewCustomer} 
                     required 
                     type="text" 
                     name="first_name" 
-                    placeholder="First Name" 
                     value={this.state.newCustomer.first_name} 
                 />
+                <label htmlFor="lastName">Last Name: </label>
                 <input 
+                    id="lastName"
                     onChange={this.updateNewCustomer} 
                     required
                     type="text" 
-                    name="last_name" 
-                    placeholder="Last Name" 
+                    name="last_name"  
                     value={this.state.newCustomer.last_name} 
                 />
+                <label htmlFor="email">Email: </label>
                 <input 
+                    id="email"
                     onChange={this.updateNewCustomer} 
                     required
                     type="text" 
-                    name="email" 
-                    placeholder="Email" 
+                    name="email"
                     value={this.state.newCustomer.email}
                 />
+                <label htmlFor="vehicleType">Vehicle Type: </label>
                 <select 
+                    id="vehicleType"
                     onChange={this.updateNewCustomer} 
                     required
                     name="vehicle_type" 
                     value={this.state.newCustomer.vehicle_type}
                 >
-                    <option >Vehicle Type</option>
-                    <option value="Rv">RV</option>
+                    <option value="RV">RV</option>
                     <option value="sailboat">Sailboat</option>
-                    <option value="van">Van</option>
-                    <option value="bike">Bike</option>
+                    <option value="campervan">Campervan</option>
+                    <option value="bicycle">Bicycle</option>
+                    <option value="motorboat">Motorboat</option>
                 </select>
+                <label htmlFor="vehicleName">Vehicle Name:</label>
                 <input 
+                    id="vehicleName"
                     onChange={this.updateNewCustomer} 
                     required
                     type="text" 
-                    name="vehicle_name" 
-                    placeholder="Vehicle Name" 
+                    name="vehicle_name"  
                     value={this.state.newCustomer.vehicle_name} 
                 />
+                <label htmlFor="vehicleLength">Vehicle Length</label>
                 <input 
+                    id="vehicleLength"
                     onChange={this.updateNewCustomer} 
                     required
                     type="text" 
                     name="vehicle_length" 
-                    placeholder="Vehicle Length" 
                     value={this.state.newCustomer.vehicle_length}
                 />
                 <input 
-                    onChange={this.updateNewCustomer} 
                     required
                     className="button"
                     type='submit' 

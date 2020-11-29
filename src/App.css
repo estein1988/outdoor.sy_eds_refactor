@@ -58,12 +58,12 @@ tr:hover{
   border-bottom: 1px solid #cccccc;
 }
 .add-new {
-  max-width: 300px;
+  max-width: 400px;
 }
 .add-new input, .add-new select {
   display: block;
   margin-bottom: 0.5rem;
-  width: 300px;
+  width: 400px;
 }
 .form-and-drop {
   display: flex;

@@ -32,9 +32,10 @@ export default class UploadCustomers extends Component {
         return (
         <div className="file-drop">
         <h3>Add Customers From File</h3>
-        <CSVReader onFileLoad = {this.handleReadCSV} >
-            <span>Drop File To Upload Here</span>
+        <label> Drop File to Upload Below
+        <CSVReader onDrop = {this.handleReadCSV} >
         </CSVReader>
+        </label>
     </div> 
     )
 }
