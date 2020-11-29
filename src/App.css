@@ -9,7 +9,6 @@
 body{
   font-family: Roboto, san-serif;
   max-width: 100%; 
-  padding: 1rem;
 }
 .styled-header{
   background-color: var(--darkGreen);
@@ -25,12 +24,14 @@ input, select {
 }
 .search-and-filter { 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin: 2rem;
 }
 .customer-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 2rem;
+  margin: 2rem;
+
 }
 .customer-table th {
   text-align: left;
@@ -52,6 +53,7 @@ th, td {
 .form-and-drop {
   display: flex;
   justify-content: space-around;
+  padding: 1rem;
 }
 .active-sort{
   background-color: var(--darkGreen);
