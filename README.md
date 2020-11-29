@@ -21,7 +21,8 @@ Users can search customers by typing the cusomter first or last name in the sear
 ## How to Open 
 1. Clone the code from GitHub on to your Local Machine 
 2. With React pre-installed, open the App in your text editor 
-3. Run `npm start` (make sure to NOT be on port 3000)
+3. Run `npm install`
+4. Run `npm start` (make sure to NOT be on port 3000)
 
 ## Contact
 You can find me on [LinkedIn](https://www.linkedin.com/in/jagrenier/)
