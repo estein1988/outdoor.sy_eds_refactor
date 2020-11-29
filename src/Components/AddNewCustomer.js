@@ -148,14 +148,6 @@ export default class  AddNewCustomer extends Component {
                     value="Add customer" 
                 />
             </form>
-            <div className="file-drop">
-                <h2>Add Multiple Customers</h2>
-                <input className="button" type="file" onChange={this.onFileChange} />
-                <button onClick={this.onFileUpload}>
-                    Upload!
-                </button>
-            </div>
-            {this.fileData}
             </section>
         )
     }

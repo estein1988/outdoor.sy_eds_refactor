@@ -5,6 +5,7 @@ import CustomerTable from './Components/CustomerTable';
 import Filter from './Components/Filter';
 import Header from './Components/Header';
 import Search from './Components/Search';
+import UploadCustomers from './Components/UploadCustomers';
 
 const apiUrl = 'http://localhost:3000/customers'
 
@@ -90,7 +91,10 @@ class App extends Component {
           </div>
         </header>
         <CustomerTable displayedCustomers={this.displayedCustomers} updateCurrentSort={this.updateCurrentSort} currentSort = {this.state.currentSort} />
+        <section className="form-and-drop">
         <AddNewCustomer addNewCustomer={this.addNewCustomer} />
+        <UploadCustomers />
+        </section> 
       </div>
     );
   }
