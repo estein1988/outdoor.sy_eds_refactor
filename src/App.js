@@ -84,7 +84,6 @@ class App extends Component {
       <div className="App">
         <Header />
         <header>
-          <h2>Customer Management Tool</h2>
           <div className="search-and-filter">
             <Search searchTerm={this.state.searchTerm} updateSearchTerm={this.updateSearchTerm}/>
             <Filter  updateCurrentFilter={this.updateCurrentFilter} />
