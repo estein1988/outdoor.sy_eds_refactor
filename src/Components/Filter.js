@@ -4,7 +4,7 @@ export default function Filter(props) {
             <h3>Filter By Vehicle Type</h3>
             <label htmlFor="filterBy"> Filter: </label>
             <select id="filterBy" onChange={props.updateCurrentFilter} value={props.currentFilter}>
-                <option value="all">Show all</option>
+                <option value="all">Show All</option>
                 <option value="RV">Show Only RVs</option>
                 <option value="sailboat">Show Only Sailboats</option>
                 <option value="campervan">Show Only Campervans</option>
