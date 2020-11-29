@@ -18,6 +18,10 @@ Users can search customers by typing the cusomter first or last name in the sear
 
 **Back End** Ruby on Rails, PostgreSQL
 
+## How to Open 
+1. Clone the code from GitHub on to your Local Machine 
+2. With React pre-installed, open the App and run NPM Start 
+
 ## Contact
 You can find me on [LinkedIn](https://www.linkedin.com/in/jagrenier/)
 
