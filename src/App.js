@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import './App.css';
-import AddNewCustomer from './Components/AddNewCustomer'
 import CustomerTable from './Components/CustomerTable';
 import Filter from './Components/Filter';
 import Header from './Components/Header';
@@ -87,13 +86,14 @@ class App extends Component {
           <div className="search-and-filter">
             <Search searchTerm={this.state.searchTerm} updateSearchTerm={this.updateSearchTerm}/>
             <Filter  updateCurrentFilter={this.updateCurrentFilter} />
+            
           </div>
         </header>
         <CustomerTable displayedCustomers={this.displayedCustomers} updateCurrentSort={this.updateCurrentSort} currentSort = {this.state.currentSort} />
-        <section className="form-and-drop">
-        <AddNewCustomer addNewCustomer={this.addNewCustomer} />
-        <UploadCustomers />
-        </section> 
+        <section className="table-and-upload"> 
+          <UploadCustomers />
+        </section>
+        
       </div>
     );
   }

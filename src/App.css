@@ -64,7 +64,7 @@ tr:hover{
   margin-bottom: 0.5rem;
   width: 400px;
 }
-.form-and-drop {
+.table-and-upload {
   display: flex;
   justify-content: space-around;
   padding: 1rem;
@@ -86,5 +86,5 @@ button:hover, .button:hover{
   color: var(--tan);
 }
 .file-drop{
-  width: 30rem;
+  width: 25rem;
 }

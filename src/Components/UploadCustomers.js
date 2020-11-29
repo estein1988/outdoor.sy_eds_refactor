@@ -31,9 +31,12 @@ export default class UploadCustomers extends Component {
     render(){ 
         return (
         <div className="file-drop">
-        <h3>Add Multiple Customers</h3>
-        <label> Drop File or Click Below to Upload
-        <CSVReader onDrop = {this.handleReadCSV} >
+        <h3>Add New Customers</h3>
+        <label> Drop File Below to Upload
+        <CSVReader 
+            onFileLoad = {this.handleReadCSV} 
+            noClick
+        >
         </CSVReader>
         </label>
     </div> 
