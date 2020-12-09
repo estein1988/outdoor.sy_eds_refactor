@@ -11,21 +11,21 @@ export default class UploadCustomers extends Component {
             let csv_vehicle_name = data[i].data[4]
             let csv_vehicle_length = data[i].data[5]
         
-            fetch('http://localhost:3000/customers',{
-                method:"POST",
-                headers: {
-                    "Content-Type":"application/json",
-                    Accept: "application/json"
-                },
-                    body: JSON.stringify({
-                        first_name: csv_first_name,
-                        last_name: csv_last_name,
-                        email: csv_email,
-                        vehicle_type: csv_vehicle_type,
-                        vehicle_name: csv_vehicle_name,
-                        vehicle_length: csv_vehicle_length
-                    })
-            }).then(window.location.reload())
+        fetch('http://localhost:3000/customers',{
+            method:"POST",
+            headers: {
+                "Content-Type":"application/json",
+                Accept: "application/json"
+            },
+                body: JSON.stringify({
+                    first_name: csv_first_name,
+                    last_name: csv_last_name,
+                    email: csv_email,
+                    vehicle_type: csv_vehicle_type,
+                    vehicle_name: csv_vehicle_name,
+                    vehicle_length: csv_vehicle_length
+                })
+        }).then(window.location.reload())
         }
     }
     render(){ 
@@ -33,13 +33,13 @@ export default class UploadCustomers extends Component {
         <div className="file-drop">
         <h3>Add New Customers</h3>
         <label> Drop File Below to Upload
-        <CSVReader 
+            <CSVReader 
             onFileLoad = {this.handleReadCSV} 
             noClick
-        >
-        </CSVReader>
+            >
+            </CSVReader>
         </label>
-    </div> 
-    )
-}
+        </div> 
+        )
     }
+}

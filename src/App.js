@@ -35,17 +35,27 @@ class App extends Component {
       body: JSON.stringify(newCustomer)
       }).catch(error => console.error(error.message))
   }
+  
   displayedCustomers = () => {
-    return this.state.customers.filter(customer => {
-      if (!this.state.searchTerm){
-      return true
-      } else {
-        return (
-          customer.first_name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
-          || customer.last_name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
-        )
+    const filteredName = this.displayedCustomersName()
+    const filteredVehicleType = this.displayedCustomersVehicleType(filteredName)
+    return this.displayedCustomersSort(filteredVehicleType)
+  }
+
+  displayedCustomersSort = (filteredVehicleType) => {
+    return filteredVehicleType.sort((a,b) => {
+      if(!this.state.currentSort){
+        return 0 
+      }else {
+        return a[this.state.currentSort] >= b[this.state.currentSort]
+          ? 1
+          : -1
       }
-    }).filter(customer => {
+    })
+  }
+
+  displayedCustomersVehicleType = (filteredName) => {
+    return filteredName.filter(customer => {
       if (this.state.currentFilter === "all"){
         return true 
       }else {
@@ -53,13 +63,18 @@ class App extends Component {
             customer.vehicle_type === this.state.currentFilter
           )
         }
-    }).sort((a,b) => {
-      if(!this.state.currentSort){
-        return 0 
-      }else {
-        return a[this.state.currentSort] >= b[this.state.currentSort]
-          ? 1
-          : -1
+    })
+  }
+
+  displayedCustomersName = () => {
+    return this.state.customers.filter(customer => {
+      if (!this.state.searchTerm){
+        return true
+      } else {
+        return (
+          customer.first_name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+          || customer.last_name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+        )
       }
     })
   }
