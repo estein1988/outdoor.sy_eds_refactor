@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-*{
+* {
   box-sizing: border-box;
 }
+
 :root {
   --darkGreen: rgb(57, 89, 62);
   --tan: rgb(200, 199, 151);
 }
-body{
-  font-family: 'Roboto', san-serif;
+
+body {
+  font-family: 'Roboto', 'san-serif'; /* wrappped san-serif in quote */
   max-width: 100%; 
 }
-.styled-header{
+
+.styled-header {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -19,72 +22,87 @@ body{
   color: var(--tan);
   font-family: 'Crimson Text', serif;
 }
-.styled-header h1, h2{
+
+.styled-header h1, h2 {
   margin-block-start: 0.5em;
   margin-block-end: 0.5em;
 }
+
 header {
   margin-bottom: 2rem;
   text-align: center;
   padding: 1rem;
 }
+
 input, select {
   padding: 0.5rem 0.25rem;
   border: 1px solid #cccccc
 }
+
 .search-and-filter { 
   display: flex;
   justify-content: space-around;
   margin: 0.5rem;
 }
+
 .customer-table {
   width: 95%;
   border-collapse: collapse;
   margin: 2rem;
-
 }
+
 .customer-table th {
   text-align: left;
   padding: 1rem;
 }
+
 th, td {
   padding: 0.5rem 2rem;
 }
-tr:hover{
+
+tr:hover {
   background-color: #cccccc;
 }
+
 .customer-table thead {
   border-bottom: 1px solid #cccccc;
 }
+
 .add-new {
   max-width: 400px;
 }
+
 .add-new input, .add-new select {
   display: block;
   margin-bottom: 0.5rem;
   width: 400px;
 }
+
 .table-and-upload {
   display: flex;
   justify-content: space-around;
-
 }
-.active-sort{
+
+.active-sort {
   background-color: var(--darkGreen);
   border: none;
   color:  var(--tan);
 }
-button{
+
+button {
   margin-left: 0.25rem
 }
+
 button, .button{
   border-radius: 2px;
   border-style: none;
 }
+
 button:hover, .button:hover{
   background-color: var(--darkGreen);
   color: var(--tan);
 }
+
 .file-drop{
   width: 25rem;
 }
